@@ -26,8 +26,12 @@ namespace MiniBlockChain {
 
         public string GenerateHash() {
             using (SHA256 sha256Hash = SHA256.Create ()) {
-                string blockData = this.transactions + this.previous_hash + this.nonce;
-                string hash = GetHash (sha256Hash, blockData);
+                StringBuilder blockData = new StringBuilder();
+                foreach (var item in this.transactions){
+                    blockData.Append(item);
+                }
+                blockData.Append(this.previous_hash + this.nonce);
+                string hash = GetHash (sha256Hash, blockData.ToString());
                 return hash;
             }
         }

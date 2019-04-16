@@ -9,7 +9,6 @@ namespace MiniBlockChain
         public List<Block> unverTransacts = new List<Block>();
         public List<Block> allTransactions = new List<Block>();
         
-
         public Blockchain(){
             GenesisBlock();
         }
@@ -25,13 +24,15 @@ namespace MiniBlockChain
         }
 
         public bool ValidateChain(){
-            for (int i = 0; i < this.chain.Count; i++){
+            for (int i = 1; i < this.chain.Count; i++){
                 Block current = this.chain[i];
                 Block previous = this.chain[i-1];
                 if (current.hash != current.GenerateHash()){
+                    System.Console.WriteLine("The current hash of the block does not equal the generated hash of the block");
                     return false;
                 }
                 if (previous.hash != previous.GenerateHash()){
+                    System.Console.WriteLine("The previous block's hash does not equal the previous hash value stored in the current block");
                     return false;
                 }
             }
