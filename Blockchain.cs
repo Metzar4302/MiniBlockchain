@@ -15,12 +15,12 @@ namespace MiniBlockChain
         }
 
         private void GenesisBlock(){
-            Block block = new Block("Init block", new String('0', 64));
+            Block block = new Block(new List<Transaction>(), new String('0', 64));
             this.chain.Add(block);
         }
 
-        public void AddBlock(){
-            Block block = new Block("Transactions", chain[chain.Count - 1].hash);
+        public void AddBlock(List<Transaction> transactions){
+            Block block = new Block(transactions, chain[chain.Count - 1].hash);
             this.chain.Add(block);
         }
 

@@ -1,21 +1,22 @@
 using System;
 using System.IO;
+using System.Collections.Generic;
 using System.Security.Cryptography;
 using System.Text;
 
 namespace MiniBlockChain {
     public class Block {
-        public string transactions;
+        public List<Transaction> transactions;
         public string previous_hash;
         public string hash;
         public int nonce;
         public DateTime timestamp = DateTime.Now;
 
         public override string ToString () {
-            return $"{transactions}\n{timestamp}\nPrev hash:\t{previous_hash}\nHash:\t\t{hash}\nNonce: {nonce}";
+            return $"{timestamp}\nPrev hash:\t{previous_hash}\nHash:\t\t{hash}\nNonce: {nonce}";
         }
 
-        public Block (string transactions, string previous_hash, int nonce = 0) {
+        public Block (List<Transaction> transactions, string previous_hash, int nonce = 0) {
             this.transactions = transactions;
             this.previous_hash = previous_hash;
             this.nonce = nonce;
