@@ -1,0 +1,6 @@
+$ cat .gitignore
+log.txt
+desktop.ini
+bin/*
+obj/*
+*~
