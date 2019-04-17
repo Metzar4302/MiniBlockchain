@@ -23,13 +23,12 @@ namespace MiniBlockChain
             bCh.ValidateChain();
             ViewBlocks(bCh);
 
-            // //! Test
-            // System.Console.WriteLine(bCh.chain[2].transactions[1].Sender);
+            //! Test
+            // System.Console.WriteLine(bCh.chain[2].transactions[1]);
             // bCh.chain[2].transactions[1].Sender = "FAKE";
-            // System.Console.WriteLine(bCh.chain[2].transactions[1].Sender);
+            // System.Console.WriteLine(bCh.chain[2].transactions[1]);
             // bCh.ValidateChain();
             // ViewBlocks(bCh);
-            
         }
 
         static void BlockSplit(int len = 80, ConsoleColor color = ConsoleColor.White){

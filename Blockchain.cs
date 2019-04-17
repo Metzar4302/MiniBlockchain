@@ -28,15 +28,22 @@ namespace MiniBlockChain
                 Block current = this.chain[i];
                 Block previous = this.chain[i-1];
                 if (current.hash != current.GenerateHash()){
-                    System.Console.WriteLine("The current hash of the block does not equal the generated hash of the block");
+                    PrintWithColor("The current hash of the block does not equal the generated hash of the block", ConsoleColor.Red);
                     return false;
                 }
                 if (previous.hash != previous.GenerateHash()){
-                    System.Console.WriteLine("The previous block's hash does not equal the previous hash value stored in the current block");
+                    PrintWithColor("The previous block's hash does not equal the previous hash value stored in the current block", ConsoleColor.Red);
                     return false;
                 }
             }
+            PrintWithColor("Hash validation complete!", ConsoleColor.Green);
             return true;
+        }
+
+        private void PrintWithColor(string text, ConsoleColor color){
+            Console.ForegroundColor = color;
+            Console.WriteLine(text);
+            Console.ResetColor();
         }
     }
 }
