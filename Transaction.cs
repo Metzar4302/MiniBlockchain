@@ -2,16 +2,18 @@ namespace MiniBlockChain
 {
     public class Transaction
     {
-        public string User { get; set; }
-        public string Value { get; set; }
+        public string Sender { get; set; }
+        public string Recipient { get; set; }
+        public float Amount { get; set; }
 
-        public Transaction(string user, string val){
-            this.User = user;
-            this.Value = val;
+        public Transaction(string sender, string recipient, float amount){
+            this.Sender = sender;
+            this.Recipient = recipient;
+            this.Amount = amount;
         }
 
         public override string ToString(){
-            return $"{User}:{Value}";
+            return $"{Sender}-{Recipient}:{Amount}";
         }
     }
 }

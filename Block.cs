@@ -13,7 +13,7 @@ namespace MiniBlockChain {
         public DateTime timestamp = DateTime.Now;
 
         public override string ToString () {
-            return $"{timestamp}\nPrev hash:\t{previous_hash}\nHash:\t\t{hash}\nNonce: {nonce}";
+            return $"{timestamp}\nPrev hash:\t{previous_hash}\nHash:\t\t{hash}";
         }
 
         public Block (List<Transaction> transactions, string previous_hash, int nonce = 0) {

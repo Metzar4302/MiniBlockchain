@@ -6,26 +6,27 @@ namespace MiniBlockChain
     class Program{
         static void Main(string[] args){
             List<Transaction> new_transaction = new List<Transaction>(){
-                new Transaction("Vasya", "50"),
-                new Transaction("Alex", "21"),
-                new Transaction("Ahmed", "777")
+                new Transaction("Vasya", "Alex", 50),
+                new Transaction("Alex", "Vasya", 21),
+                new Transaction("Ahmed", "Abdula", 777)
             };
 
             List<Transaction> new_transaction_2 = new List<Transaction>(){
-                new Transaction("Vasya", "228"),
-                new Transaction("Ahmed", "1488")
+                new Transaction("Vasya", "Abdula", 228),
+                new Transaction("Ahmed", "Vasya", 1488)
             };
             
             Blockchain bCh = new Blockchain();
             bCh.AddBlock(new_transaction);
             bCh.AddBlock(new_transaction_2);
 
-            // ViewBlocks(bCh);
+            bCh.ValidateChain();
+            ViewBlocks(bCh);
 
             // //! Test
-            // System.Console.WriteLine(bCh.chain[2].transactions[1].Value);
-            // bCh.chain[2].transactions[1].Value = "FAKE";
-            // System.Console.WriteLine(bCh.chain[2].transactions[1].Value);
+            // System.Console.WriteLine(bCh.chain[2].transactions[1].Sender);
+            // bCh.chain[2].transactions[1].Sender = "FAKE";
+            // System.Console.WriteLine(bCh.chain[2].transactions[1].Sender);
             // bCh.ValidateChain();
             // ViewBlocks(bCh);
             
